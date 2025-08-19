@@ -85,11 +85,8 @@ export const TranslatorProvider = ({ children }: { children: ReactNode }) => {
       (each) => localization.defaultLocale === each.code,
     );
 
-    if (defaultFromOptions) {
-      setLocaleToTranslateFrom(defaultFromOptions.code);
-    } else {
-      setLocaleToTranslateFrom(localesOptions[0].code);
-    }
+    if (defaultFromOptions) setLocaleToTranslateFrom(defaultFromOptions.code);
+    setLocaleToTranslateFrom(localesOptions[0].code);
   }, [locale, localesOptions, localization.defaultLocale]);
 
   const closeTranslator = () => modal.closeModal(modalSlug);
